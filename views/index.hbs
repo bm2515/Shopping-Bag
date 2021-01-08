@@ -1,0 +1,116 @@
+<head>
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/mydashboard">My DashBoard</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">HOME</a></li>
+      <li><a href="/postadd">Post An Add!</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><span class="glyphicon glyphicon-log-in"></span><form action = "/logout?_method=DELETE" method='POST'>
+<button type = "submit" class = "loginbtn"><font strong>Log Out</font></button>
+</form></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+h1 {text-align: center;}
+</style>
+
+
+<h1>Hi User, Welcome to Shopping Bag</h1>
+          
+         
+<div class="container">
+  <h2>Items on Sale</h2>
+  <h5>What purchase would you like to make today?</h5>
+      
+<!-- Search form -->
+<form action="/query" method="POST" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Enter Item Name"
+    aria-label="Search" name="itemName">
+</form>
+    
+    
+<body> 
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Seller ID</th>
+        <th>Price</th>
+        <th>Description</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each items as |i|}}
+
+    <tr class="warning">
+
+    <td style="padding:10px"><font size = "4"></font><span class = "item">{{i.ItemName}}</span></font></td>
+    <td style="padding:10px"><font size = "4"><span class = "seller_ID">{{i.Seller_ID}}</span></font></td>
+    <td style="padding:10px"><font size = "4"><span class = "price">{{i.Price}}</span></font></td>
+    <td style="padding:10px"><font size = "4"><span class = "desp" >{{i.Description}}</span></font></td>
+    <td style="padding:10px"><font size = "4"><button type="button" class = "purchase_btn">Purchase IT!</button></font></td>
+
+    </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    //Retreiving Item purchased when Purchase Button is clicked (Via JQuery)
+$(document).ready(function () {
+     $('body').on('click', '.purchase_btn', function (event) {
+        event.preventDefault();
+        var currentTR = $(this).closest('tr');
+        var iname = currentTR.find("span.item").text();     //Item Name
+        var iprice = currentTR.find("span.price").text();   //Item Price
+        var iseller = currentTR.find("span.desp").text();
+        var idesp = currentTR.find("span.desp").text();      //Item Description
+        alert("Congratulations! You have bought " + iname + " for only" + iprice + " through Shopping Bag!")
+        $("p").html(iname);   //for testing purposes
+
+        $(this).closest("tr").remove();
+
+        //retreviving item purchased using XHR in JS
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/purchased');
+
+
+
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send(`ItemName=${iname}&Itemprice=${iprice}&ItemDecp=${idesp}&ItemSeller=${iseller}`);
+        console.log(iname);
+        console.log(iprice);
+        console.log(idesp);
+     });
+ });
+</script>
+
+
+
+
+<footer>&copy; Copyright 2020 AIT.ShoppingBAG</footer>

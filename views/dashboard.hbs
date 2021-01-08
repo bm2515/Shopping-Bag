@@ -1,0 +1,20 @@
+<h2>This is my purchasing History</h2>
+<table>
+    <tr bgcolor="#4682B4">
+    <td height="50" width="50"><font color="white" size = "5">Item Name</font></td>
+    <td><font color="white" size = "5">Seller ID</font></td>
+    <td><font color="white" size = "5">Price</font></td>
+    <td><font color="white" size = "5">Description</font></td>
+
+    </tr>
+{{#each items as |i|}}
+<tr>
+
+<td style="padding:10px"><font size = "4"> <span class = "item">{{i.ItemName}}</span></font></td>
+<td style="padding:10px"><font size = "4"><span class = "seller_ID">{{i.Seller_ID}}</span></font></td>
+<td style="padding:10px"><font size = "4"><span class = "price">{{i.Price}}</span></font></td>
+<td style="padding:10px"><font size = "4"><span class = "desp" >{{i.Description}}</span></font></td>
+
+</tr>
+{{/each}}
+</table>

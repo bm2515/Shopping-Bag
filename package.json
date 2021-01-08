@@ -1,0 +1,41 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "ait-dep",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-008-spring-2020/bm2515-final-project.git"
+  },
+  "keywords": [
+    "abc"
+  ],
+  "author": "bilal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-008-spring-2020/bm2515-final-project/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2020/bm2515-final-project#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.12.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.10",
+    "node": "^13.13.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "popper": "^1.0.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6"
+  }
+}

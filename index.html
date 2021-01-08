@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+<h2 id= "mytitle">ParentNode.children -JS DOM - dcode</h2>
+<ul id = 'myList'>
+<li>Apples</li>
+<li>Pears</li>
+<li>Bananas</li>
+</ul>
+
+</body>
+
+<script type = "text/javascript">
+
+const parentList = document.getElementById('myList');
+const listChildren = parentList.children;
+console.log(parentList);
+console.log(listChildren);
+const pears = listChildren.item(1);
+//console.log(pears);
+
+for (let i = 0; i < listChildren.length; i++){
+    console.log(listChildren[i])
+}
+
+const orangesItem = document.createElement('li');
+orangesItem.textContent = "Oranges";
+
+parentList.appendChild(orangesItem);
+console.log(listChildren);
+
+
+</script>
+
+</html>

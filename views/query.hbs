@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+
+</head>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/mydashboard">My DashBoard</a></li>
+      <li><a href="/postadd">Post An Add!</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><span class="glyphicon glyphicon-log-in"></span><form action = "/logout?_method=DELETE" method='POST'>
+<button type = "submit" class = "loginbtn"><font strong>Log Out</font></button>
+</form></li>
+    </ul>
+  </div>
+</nav>
+
+
+<style>
+h1 {text-align: center;}
+</style>
+
+
+
+
+
+<h1>Hi User, Welcome to Shopping Bag</h1>
+
+
+<div class="container">
+  <h2>Items on Sale</h2>
+  {{message}}
+
+<!-- Search form -->
+<form action="/query" method="POST" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Enter Item Name"
+    aria-label="Search" name="itemName">
+</form>
